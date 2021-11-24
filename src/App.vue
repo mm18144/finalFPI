@@ -1,12 +1,25 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+<div>
+<div id="app">
+    <navbar-component/>
+    <side-bar-component/>
     <router-view/>
   </div>
+</div>
+
 </template>
+
+<script >
+import NavbarComponent from './components/NavbarComponent.vue'
+import SideBarComponent from './components/SideBarComponent.vue'
+  export default{
+    components:{
+      NavbarComponent,
+      SideBarComponent
+    }
+  }
+</script>
+
 
 <style>
 #app {
