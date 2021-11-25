@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar toggleable="lg" type="dark" variant="info">
-        <b-navbar-brand href="#">Tienda CellPhone</b-navbar-brand>
+        <b-navbar-brand href="/">Tienda CellPhone</b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -14,13 +14,13 @@
             </b-nav-form>
         </b-navbar-nav>
         <div class="button-group">
-            <b-button id="button-inicio">Inicio</b-button>
+            <b-button id="button-inicio" @click="goToHome">Inicio</b-button>
         </div>
         <div>
             <b-button id="button-statistics">Estadisticas</b-button>
         </div>
         <div>
-            <b-button id="button-plus"><p class="h5 mb-2" id="button-agregar"><b-icon icon="plus-circle"></b-icon></p></b-button> 
+            <b-button id="button-plus" @click="goToForm" target="_blank"><p class="h5 mb-2" id="button-agregar"><b-icon icon="plus-circle"></b-icon></p></b-button> 
         </div>
 
         <div>
@@ -28,13 +28,27 @@
         </div>
         </b-collapse>
     </b-navbar>
+
+    <h1>Aca van las tarjetas</h1>
+    <tarjetas/>
   </div>
 </template>
 
 <script>
+import Tarjetas from './Tarjetas.vue'
     export default {
         name: 'NavbarComponent',
-
+        components: {
+            Tarjetas,
+        },
+        methods:{
+            goToForm(){
+                this.$router.push('/formulario')
+            },
+            goToHome(){
+                this.$router.push('/')
+            }
+        }
 
     }
 </script>

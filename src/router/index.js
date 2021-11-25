@@ -22,7 +22,13 @@ const routes = [
     path: '/formulario',
     name: 'Formulario',
     component:  () => import('../components/Formulario.vue')
+  },
+  {
+    path: '/descripcion/:id',
+    name: 'Description',
+    component:  () => import('../views/Description.vue')
   }
+  
 ]
 
 const router = new VueRouter({
