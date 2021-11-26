@@ -120,7 +120,7 @@
                     </b-row>               
                     <br>
                     <div>
-                      <label for="inputPrefcio" >Precio:</label>
+                      <label for="inputPrecio" >Precio:</label>
                       <input type="number" id="inputPrecio" v-model="precio"> 
                     </div>    
                     <br>

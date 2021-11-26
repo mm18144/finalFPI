@@ -2,7 +2,7 @@
 <div>
 <div id="app">
     <navbar-component/>
-    <side-bar-component/>
+   <!-- <side-bar-component class="styleSideBar"></side-bar-component> -->
     <router-view/>
   </div>
 </div>
@@ -11,11 +11,11 @@
 
 <script >
 import NavbarComponent from './components/NavbarComponent.vue'
-import SideBarComponent from './components/SideBarComponent.vue'
+//import SideBarComponent from './components/SideBarComponent.vue'
   export default{
     components:{
       NavbarComponent,
-      SideBarComponent
+  //    SideBarComponent
     }
   }
 </script>
@@ -41,5 +41,9 @@ import SideBarComponent from './components/SideBarComponent.vue'
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.styleSideBar{
+  margin-top: 5px;
 }
 </style>
