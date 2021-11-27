@@ -20,7 +20,7 @@
             <div>
                 <div class="containerPrice" id="containerOrder">
                     <span>Ordenar por:</span>
-                    <b-button type="submit" variant="success" class="buttonPrice" v-model="price3" @click="filtrarPorPrecio"><b-icon icon="arrow-up"></b-icon>Precio</b-button>
+                    <b-button type="submit" variant="success" class="buttonPrice"  @click="filtrarPorPrecio"><b-icon icon="arrow-up"></b-icon>Precio</b-button>
                     <b-button type="reset" variant="success" class="buttonDate" v-model="date1" @click="filtrarPorFecha"><b-icon icon="calendar3"></b-icon> Fecha</b-button>
                 </div>
             </div>
@@ -38,7 +38,6 @@ import { bus } from '../main'
             return{
                 price1:null,
                 price2:null,
-                price3:null,
                 date1:null
             }
         },
@@ -48,10 +47,8 @@ import { bus } from '../main'
                     bus.$emit("buscarRango", this.price1)
                 }
             },
-            filtratPorPrecio(){
-                if(this.price3){
-                    bus.$emit("buscarPorPrecio", this.price3)
-                }   
+            filtrarPorPrecio(){
+                bus.$emit("buscarPorPrecio")
             },
             filtrarPorFecha(){
                 if(this.date1){

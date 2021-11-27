@@ -16,7 +16,11 @@ import NavbarComponent from './components/NavbarComponent.vue'
     components:{
       NavbarComponent,
   //    SideBarComponent
-    }
+      
+    },
+    data: ()=>({
+      drawer:true
+    }),
   }
 </script>
 

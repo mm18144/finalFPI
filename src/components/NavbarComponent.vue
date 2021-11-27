@@ -30,21 +30,23 @@
     </b-navbar>
 
     <tarjetas class="styleSideBar"></tarjetas>
+    <footer-component/>
   </div>
 </template>
 
 <script>
 import {bus} from '../main'
 import Tarjetas from './Tarjetas.vue'
+import FooterComponent from '../components/FooterComponent.vue'
     export default {
-        name: 'NavbarComponent',
+        name: 'NavbarComponent', 
         data(){
             return{
                 cadena:""
             }
         },
         components: {
-            Tarjetas,
+            Tarjetas, FooterComponent
         },
         methods:{
             goToForm(){

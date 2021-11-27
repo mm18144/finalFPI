@@ -5,7 +5,7 @@
         <div class="card-container d-flex flex-wrap justify-content-around align-items-center">
             <b-card
                 v-for="(anuncio,key) in anuncios" :key="key"    
-                img-src="https://picsum.photos/600/300/?image=25"
+                img-src="https://i.blogs.es/e141f1/gamaalta/1366_2000.jpg   "
                 img-alt="Image"
                 img-top
                 tag="article"
@@ -16,10 +16,9 @@
                 <b-card-text>
                 <h4><span>$</span>{{anuncio.precio}}</h4>
                 <h6>{{anuncio.TituloAnuncio}}</h6>
-                <span>{{anuncio.id}}</span>
+                <router-link to="/descripcion/">ver mas...</router-link>
                 </b-card-text>
-
-                <b-button href="#" variant="primary">Go somewhere</b-button>
+                <b-button href="/descripcion" target="_blank" variant="primary">Go somewhere</b-button>
             </b-card>            
         </div>
     </div>
@@ -95,7 +94,19 @@ import {bus} from '../main'
                     var x=item.TituloAnuncio.toLowerCase().indexOf(cadena.toLowerCase())
                     return (x>=0)
                 })
-            }
+            },
+            sortByPrice(){
+                this.precioAsc=!this.precioAsc
+                this.anuncios.sort((a,b)=>{
+                    var retorno=1;
+                    if(a.precio>b.precio){
+                        retorno=1;
+                    }else if(a.precio<b.precio){
+                        retorno=retorno *-1;
+                    } 
+                    return retorno;
+                })
+            },
 
         },
         mounted(){
@@ -110,6 +121,10 @@ import {bus} from '../main'
                 console.log(data)
                 this.filterString(data)
             })
+
+            bus.$on("buscarPorPrecio", ()=>{
+                this.sortByPrice()
+            })            
         },    
 
         
